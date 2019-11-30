@@ -426,9 +426,8 @@ frame = 10
 script = ExtResource( 3 )
 
 [node name="hero" type="Sprite" parent="."]
-position = Vector2( 523, 516 )
+position = Vector2( 850.093, 306.48 )
 texture = ExtResource( 2 )
-offset = Vector2( 0, -12 )
 vframes = 10
 hframes = 10
 script = ExtResource( 4 )
