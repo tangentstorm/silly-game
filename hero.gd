@@ -5,7 +5,7 @@ var speed = 8
 var bulletRound = 1
 var bullets
 const bulletSpeed = 16
-const ammoDelay = 0.08
+const ammoDelay = 0.2
 var ammoDelta = ammoDelay
 
 # Called when the node enters the scene tree for the first time.
@@ -15,10 +15,18 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_key_pressed(KEY_D): position.x += speed
-	if Input.is_key_pressed(KEY_A): position.x -= speed
-	if Input.is_key_pressed(KEY_W): position.y -= speed
-	if Input.is_key_pressed(KEY_S): position.y += speed
+	if Input.is_key_pressed(KEY_D):
+		frame = 0
+		position.x += speed
+	if Input.is_key_pressed(KEY_A):
+		frame = 2
+		position.x -= speed
+	if Input.is_key_pressed(KEY_W):
+		frame = 3
+		position.y -= speed
+	if Input.is_key_pressed(KEY_S):
+		frame = 1
+		position.y += speed
 	
 	ammoDelta += delta
 	if ammoDelta > ammoDelay and Input.is_mouse_button_pressed(1):

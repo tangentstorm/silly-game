@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://world.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/sprites.svg" type="Texture" id=2]
 [ext_resource path="res://bullet.gd" type="Script" id=3]
-[ext_resource path="res://hero.gd" type="Script" id=4]
-[ext_resource path="res://aim.gd" type="Script" id=5]
+[ext_resource path="res://assets/aardvark.png" type="Texture" id=4]
+[ext_resource path="res://hero.gd" type="Script" id=5]
+[ext_resource path="res://aim.gd" type="Script" id=6]
 
 [node name="root" type="Node2D"]
 
@@ -18,7 +19,6 @@ tile_data = PoolIntArray( -917509, 1, 0, -917508, 1, 0, -917507, 1, 0, -917506, 
 [node name="badguy" type="Sprite" parent="."]
 position = Vector2( 336, 90 )
 texture = ExtResource( 2 )
-offset = Vector2( 0, -12 )
 vframes = 10
 hframes = 10
 frame = 2
@@ -426,15 +426,15 @@ frame = 10
 script = ExtResource( 3 )
 
 [node name="hero" type="Sprite" parent="."]
-position = Vector2( 850.093, 306.48 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-script = ExtResource( 4 )
+position = Vector2( 702.744, 316.955 )
+texture = ExtResource( 4 )
+hframes = 4
+script = ExtResource( 5 )
 
 [node name="Camera2D" type="Camera2D" parent="hero"]
 position = Vector2( 30, 28 )
 current = true
+zoom = Vector2( 0.5, 0.5 )
 
 [node name="aim" type="Sprite" parent="."]
 position = Vector2( 38.889, 1079.05 )
@@ -442,4 +442,4 @@ texture = ExtResource( 2 )
 vframes = 10
 hframes = 10
 frame = 20
-script = ExtResource( 5 )
+script = ExtResource( 6 )
