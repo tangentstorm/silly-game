@@ -27,7 +27,12 @@ func _process(delta):
 	if Input.is_key_pressed(KEY_S):
 		frame = 1
 		position.y += speed
-	
+
+	if Input.is_key_pressed(KEY_R):
+		get_tree().reload_current_scene()
+	if Input.is_key_pressed(KEY_ESCAPE):
+		get_tree().quit()
+
 	ammoDelta += delta
 	if ammoDelta > ammoDelay and Input.is_mouse_button_pressed(1):
 		var b = bullets.get_child(bulletRound)
