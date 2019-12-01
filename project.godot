@@ -26,6 +26,11 @@ window/size/height=768
 window/size/resizable=false
 window/size/fullscreen=true
 
+[layer_names]
+
+2d_physics/layer_1="enemies"
+2d_physics/layer_6="bullets"
+
 [rendering]
 
 quality/driver/fallback_to_gles2=true

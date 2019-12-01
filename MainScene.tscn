@@ -1,11 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://world.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/sprites.svg" type="Texture" id=2]
-[ext_resource path="res://bullet.gd" type="Script" id=3]
-[ext_resource path="res://assets/aardvark.png" type="Texture" id=4]
-[ext_resource path="res://hero.gd" type="Script" id=5]
-[ext_resource path="res://aim.gd" type="Script" id=6]
+[ext_resource path="res://badguy.gd" type="Script" id=3]
+[ext_resource path="res://bullets.gd" type="Script" id=4]
+[ext_resource path="res://bullet.gd" type="Script" id=5]
+[ext_resource path="res://assets/aardvark.png" type="Texture" id=6]
+[ext_resource path="res://hero.gd" type="Script" id=7]
+[ext_resource path="res://aim.gd" type="Script" id=8]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="CircleShape2D" id=2]
 
 [node name="root" type="Node2D"]
 
@@ -22,6 +28,14 @@ texture = ExtResource( 2 )
 vframes = 10
 hframes = 10
 frame = 2
+script = ExtResource( 3 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="badguy"]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="badguy/KinematicBody2D"]
+scale = Vector2( 2, 2 )
+shape = SubResource( 1 )
 
 [node name="heart" type="Sprite" parent="."]
 position = Vector2( 583, 316 )
@@ -31,7 +45,7 @@ hframes = 10
 frame = 5
 
 [node name="bullets" type="Node2D" parent="."]
-editor/display_folded = true
+script = ExtResource( 4 )
 
 [node name="bullet" type="Sprite" parent="bullets"]
 position = Vector2( 94.6219, 1082.73 )
@@ -39,397 +53,19 @@ texture = ExtResource( 2 )
 vframes = 10
 hframes = 10
 frame = 10
-script = ExtResource( 3 )
+script = ExtResource( 5 )
 
-[node name="bullet11" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
+[node name="StaticBody2D" type="StaticBody2D" parent="bullets/bullet"]
+collision_mask = 32
 
-[node name="bullet12" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet13" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet14" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet15" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet16" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet17" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet18" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet19" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet20" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet21" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet22" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet23" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet24" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet25" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet26" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet27" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet28" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet29" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet30" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet31" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet32" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet33" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet34" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet35" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet36" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet37" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet38" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet39" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet40" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet41" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet42" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet43" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet44" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet45" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet46" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet47" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet48" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet49" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet2" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet3" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet4" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet5" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet6" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet7" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet8" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet9" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
-
-[node name="bullet10" type="Sprite" parent="bullets"]
-position = Vector2( 94.6219, 1082.73 )
-texture = ExtResource( 2 )
-vframes = 10
-hframes = 10
-frame = 10
-script = ExtResource( 3 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bullets/bullet/StaticBody2D"]
+shape = SubResource( 2 )
 
 [node name="hero" type="Sprite" parent="."]
 position = Vector2( 702.744, 316.955 )
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 hframes = 4
-script = ExtResource( 5 )
+script = ExtResource( 7 )
 
 [node name="Camera2D" type="Camera2D" parent="hero"]
 position = Vector2( 30, 28 )
@@ -442,4 +78,4 @@ texture = ExtResource( 2 )
 vframes = 10
 hframes = 10
 frame = 20
-script = ExtResource( 6 )
+script = ExtResource( 8 )
